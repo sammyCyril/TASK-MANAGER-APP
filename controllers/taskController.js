@@ -2,7 +2,7 @@ const Task = require("../models/Task");
 const User = require("../models/User");
 const jwt = require("jsonwebtoken");
 
-// Create a new task
+// create a new task
 exports.createTask = async (req, res) => {
   const { token, title, description, status, dueDate } = req.body;
   if (!token || !title || !dueDate) {
@@ -21,7 +21,6 @@ exports.createTask = async (req, res) => {
   }
 };
 
-// Retrieve all tasks for a user (with optional status filter)
 exports.getAllTasks = async (req, res) => {
   const { token, status } = req.body;
   if (!token)
@@ -39,7 +38,6 @@ exports.getAllTasks = async (req, res) => {
   }
 };
 
-// Fetch a single task by ID
 exports.getTaskById = async (req, res) => {
   const { token, taskId } = req.body;
   if (!token || !taskId)
@@ -56,7 +54,6 @@ exports.getTaskById = async (req, res) => {
   }
 };
 
-// Update specific fields of a task
 exports.updateTask = async (req, res) => {
   const { token, taskId, title, description, status, dueDate } = req.body;
   if (!token || !taskId) {
@@ -86,7 +83,7 @@ exports.updateTask = async (req, res) => {
   }
 };
 
-// Delete a task
+
 exports.deleteTask = async (req, res) => {
   const { token, taskId } = req.body;
   if (!token || !taskId)

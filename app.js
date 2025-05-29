@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const authRoutes = require('./routes/authRoutes');
 const taskRoutes = require('./routes/taskRoutes');
-const userRoutes = require('./routes/userRoutes');
    
 dotenv.config(); 
 const app = express();  
@@ -25,8 +24,7 @@ const connect = async () => {
   });
 
 app.use('/api/auth', authRoutes);
-app.use('/api/tasks', taskRoutes);
-app.use('/api/user', userRoutes);
+app.use('/api/tasks', taskRoutes); 
 
 app.listen(3000, () => {
     connect()
